@@ -3,7 +3,7 @@ const chaiAsPromised = require('chai-as-promised');
 
 const {
   series,
-} = require('../../lib/utils');
+} = require('../../src/utils');
 
 chai.use(chaiAsPromised);
 chai.should();

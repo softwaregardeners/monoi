@@ -6,7 +6,7 @@ const sinon = require('sinon');
 
 const { EventEmitter } = require('events');
 
-const path = '../../lib/children';
+const path = '../../src/children';
 const {
   promisifyChildProcess,
 } = require(path);

@@ -2,18 +2,25 @@
   "name": "@softwaregardeners/monoi",
   "version": "0.0.0",
   "description": "A process monitor that does not take itself too seriously",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": "git@github.com:softwaregardeners/monoi.git",
   "author": "Brice Carpentier <brice@daknet.org>",
   "license": "MIT",
   "engines": {
     "node": ">= 7.6"
   },
+  "files": [
+    "lib"
+  ],
   "scripts": {
+    "build": "babel src -d lib",
+    "prepublish": "npm build",
     "lint": "eslint .",
     "test": "mocha test/**/*.js"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
     "chai": "^4.1.0",
     "chai-as-promised": "^7.1.1",
     "eslint": "^4.3.0",

@@ -4,11 +4,11 @@ const {
 } = require('lodash/fp');
 const nodeWatch = require('node-watch');
 
-const { series } = require('./lib/utils');
+const { series } = require('./utils');
 const {
   promisifyChildProcess,
   runCommandWithPassTrough,
-} = require('./lib/children');
+} = require('./children');
 
 const defaultOptions = {
   restartSignal: 'SIGUSR2',
