@@ -10,7 +10,7 @@
     "node": ">= 7.6"
   },
   "files": [
-    "lib"
+    "lib/*.js"
   ],
   "scripts": {
     "build": "babel src -d lib",
