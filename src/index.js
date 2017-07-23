@@ -6,8 +6,8 @@ const nodeWatch = require('node-watch');
 
 const { series } = require('./utils');
 const {
+  execCommand,
   promisifyChildProcess,
-  runCommandWithPassTrough,
 } = require('./children');
 
 const defaultOptions = {
@@ -17,7 +17,7 @@ const defaultOptions = {
 };
 
 function runCommand(command, signals) {
-  return promisifyChildProcess(runCommandWithPassTrough(command, signals));
+  return promisifyChildProcess(execCommand(command, { signals }));
 }
 
 function start(commands, signals) {
