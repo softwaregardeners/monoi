@@ -1,4 +1,5 @@
 const {
+  castArray,
   defaults,
   debounce,
 } = require('lodash/fp');
@@ -41,7 +42,7 @@ function main(commands, options = {}) {
 
   const fn = () => start(commands, [restartSignal].concat(signals));
   if (watch.length) {
-    const watcher = watchAndReload(debounce(1000)(fn), watch, restartSignal);
+    const watcher = watchAndReload(debounce(1000)(fn), castArray(watch), restartSignal);
     process.on('SIGINT', watcher.close);
     process.on('SIGTERM', watcher.close);
   }
