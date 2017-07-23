@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "airbnb-base",
+    "plugin:lodash-fp/recommended"
+  ],
+  "plugins": [
+    "lodash-fp"
+  ],
+  "settings": {
+    "files": ["index.js", "lib/**/*.js"]
+  }
+}
