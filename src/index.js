@@ -44,6 +44,7 @@ function main(commands, options = {}) {
     process.on('SIGINT', watcher.close);
     process.on('SIGTERM', watcher.close);
   }
+  fn();
 }
 
 module.exports = main;
