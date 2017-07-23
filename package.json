@@ -25,6 +25,7 @@
     "sinon": "^2.3.8"
   },
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "node-watch": "^0.5.5"
   }
 }
