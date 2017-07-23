@@ -38,7 +38,8 @@ function main(commands, options = {}) {
     watch,
     restartSignal,
   } = defaults(defaultOptions)(options);
-  const fn = () => start(commands, restartSignal.concat(signals));
+
+  const fn = () => start(commands, [restartSignal].concat(signals));
   if (watch.length) {
     const watcher = watchAndReload(debounce(1000)(fn), watch, restartSignal);
     process.on('SIGINT', watcher.close);
