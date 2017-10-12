@@ -2,6 +2,7 @@ const {
   castArray,
   defaults,
   debounce,
+  zip,
 } = require('lodash/fp');
 const nodeWatch = require('node-watch');
 
@@ -17,12 +18,13 @@ const defaultOptions = {
   watch: [],
 };
 
-function runCommand(command, signals) {
-  return promisifyChildProcess(execCommand(command, { signals }));
+function runCommand(command, signals, options) {
+  return promisifyChildProcess(execCommand(command, { signals, options }));
 }
 
-function start(commands, signals) {
-  const promises = commands.map(command => () => runCommand(command, signals));
+function start(commands, signals, spawnOptions) {
+  const promises = zip(commands, spawnOptions)
+    .map(([command, options]) => () => runCommand(command, signals, options));
   return series(promises);
 }
 
@@ -38,9 +40,10 @@ function main(commands, options = {}) {
     signals,
     watch,
     restartSignal,
+    spawnOptions,
   } = defaults(defaultOptions)(options);
 
-  const fn = () => start(commands, [restartSignal].concat(signals));
+  const fn = () => start(commands, [restartSignal].concat(signals), spawnOptions);
   if (watch.length) {
     const watcher = watchAndReload(debounce(1000)(fn), castArray(watch), restartSignal);
     process.on('SIGINT', watcher.close);

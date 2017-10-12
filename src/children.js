@@ -7,9 +7,9 @@ function spawn(...args) {
   /* eslint-enable global-require */
 }
 
-function execCommand(command, { signals = [] } = {}) {
+function execCommand(command, { signals = [], options = {} } = {}) {
   const [bin, ...args] = command.split(' ');
-  const child = spawn(bin, args, { stdio: 'inherit' });
+  const child = spawn(bin, args, { stdio: 'inherit', ...options });
   signals.forEach(signal => passSignalThrough(child, signal));
 
   return child;
