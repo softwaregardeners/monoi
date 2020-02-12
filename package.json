@@ -25,7 +25,7 @@
     "eslint-plugin-lodash-fp": "^2.2.0-a1",
     "mocha": "^7.0.1",
     "rewire": "^2.5.2",
-    "sinon": "^2.3.8"
+    "sinon": "^8.1.1"
   },
   "dependencies": {
     "lodash": "^4.17.4",
