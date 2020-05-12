@@ -23,7 +23,7 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-lodash-fp": "^2.2.0-a1",
-    "mocha": "^7.0.1",
+    "mocha": "^7.1.2",
     "rewire": "^2.5.2",
     "sinon": "^8.1.1"
   },
